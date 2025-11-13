@@ -1,0 +1,351 @@
+/*
+ * Archivo: style.css
+ * Descripción: Hoja de estilos principal para el sitio web 'Los Extraditablessd'.
+ * Proporciona un diseño limpio, moderno y responsive para todas las páginas.
+ */
+
+:root {
+    /* Paleta de Colores inspirada en el Trap/Urbano */
+    --primary-color: #00bcd4; /* Cian Vibrante (Moderno/Neón) */
+    --secondary-color: #ff3d00; /* Naranja/Rojo (Acento) */
+    --dark-color: #121212; /* Fondo Negro Oscuro */
+    --light-color: #ffffff; /* Blanco para texto/elementos claros */
+    --gray-color: #bdbdbd; /* Gris para texto secundario */
+    --font-family: 'Helvetica Neue', Arial, sans-serif;
+    --max-width: 1200px;
+}
+
+/* --- Base Reset and Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--light-color); /* Color de texto base claro */
+    background-color: var(--dark-color); /* Fondo oscuro */
+}
+
+h1, h2, h3 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--primary-color); /* Títulos en color primario */
+}
+
+h1 { font-size: 2.5em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+
+p {
+    margin-bottom: 1em;
+    color: var(--gray-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Lista simple sin adornos */
+.section-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Utility Classes --- */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-container {
+    padding: 60px 0;
+}
+
+.grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* --- Navigation (nav) --- */
+.nav {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .brand {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--light-color);
+    display: flex;
+    align-items: center;
+}
+
+.nav .brand:hover {
+    color: var(--primary-color);
+}
+
+.nav .logo {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.nav .menu a {
+    color: var(--light-color);
+    margin-left: 15px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav .menu a:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+/* --- Hero Section (header) --- */
+.hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscurece la imagen de fondo */
+    z-index: 1;
+}
+
+.hero-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: var(--light-color);
+    text-shadow: 0 0 15px var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: var(--gray-color);
+}
+
+/* --- Card Styles (Canciones) --- */
+
+.card {
+    background: var(--dark-color);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
+}
+
+.card .p {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-img {
+    width: 100%;
+    height: 250px; 
+    object-fit: cover;
+    background-color: #333; /* Placeholder visual */
+}
+
+/* --- Galería Styles --- */
+#galeria img.card {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* --- Artist Pages Layout (blessd.html, kris r.html, etc.) --- */
+.artist-header {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 80px 0 40px;
+    text-align: center;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.artist-header h1 {
+    color: var(--light-color);
+}
+
+.artist-profile {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding: 40px 0;
+}
+
+.artist-profile-img {
+    width: 250px;
+    min-width: 250px;
+    height: 250px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5);
+    background-color: #333; 
+}
+
+.artist-bio h2, .artist-bio h3 {
+    color: var(--primary-color);
+}
+
+/* --- Song Cards on Artist Pages --- */
+.artist-songs .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.song-card {
+    padding: 20px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.2);
+}
+
+.song-card h3 {
+    color: var(--secondary-color);
+}
+
+.song-card .song-image-placeholder {
+    width: 100%;
+    height: 180px; 
+    background-color: var(--secondary-color);
+    margin-bottom: 15px;
+    border-radius: 4px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.song-card:hover .song-image-placeholder {
+    opacity: 1;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #0d0d0d;
+    color: var(--gray-color);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 900px) {
+    .artist-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav .inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav .brand {
+        margin-bottom: 15px;
+    }
+
+    .nav .menu a {
+        margin: 0 5px;
+        padding: 5px 8px;
+    }
+
+    .hero {
+        height: 350px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 500px) {
+    .nav .menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav .menu a {
+        margin: 5px;
+    }
+
+    .artist-profile-img {
+        width: 150px;
+        height: 150px;
+    }
+}
